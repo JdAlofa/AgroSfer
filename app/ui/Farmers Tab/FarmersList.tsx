@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Search } from 'lucide-react'
+import farmerData from '../../lib/farmerData'
 
 interface Farmer {
-  id: string
+  id: number
   name: string
   phoneNumber: string
-  imageUrl: string
+  picture: string
 }
 
 interface FarmersListProps {
@@ -18,17 +20,20 @@ interface FarmersListProps {
 
 export default function FarmersList({ searchQuery, onSearch }: FarmersListProps) {
   const [farmers, setFarmers] = useState<Farmer[]>([])
+  const [selectedFarmerId, setSelectedFarmerId] = useState<number | null>(null)
 
   useEffect(() => {
-    // Simulating API call to fetch farmers based on search query
-    const fetchFarmers = async () => {
-      const response = await fetch(`/api/farmers?search=${searchQuery}`)
-      const data = await response.json()
-      setFarmers(data)
-    }
-
-    fetchFarmers()
+    // Filter farmers based on search query
+    const filteredFarmers = farmerData.filter(farmer =>
+      farmer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      farmer.phoneNumber.includes(searchQuery)
+    )
+    setFarmers(filteredFarmers)
   }, [searchQuery])
+
+  const handleFarmerClick = (id: number) => {
+    setSelectedFarmerId(id)
+  }
 
   return (
     <div>
@@ -44,19 +49,31 @@ export default function FarmersList({ searchQuery, onSearch }: FarmersListProps)
       </div>
       <div className="space-y-4">
         {farmers.map((farmer) => (
-          <div key={farmer.id} className="flex items-center space-x-4 p-3 border-l-4 border-[#754C29] bg-gray-50 rounded-r-md">
-            <Image
-              src={farmer.imageUrl}
-              alt={farmer.name}
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-            <div>
-              <h3 className="font-semibold text-[#754C29]">{farmer.name}</h3>
-              <p className="text-sm text-gray-600">{farmer.phoneNumber}</p>
+          <Link 
+            key={farmer.id} 
+            href={`/farmers/${farmer.id}`}
+            onClick={() => handleFarmerClick(farmer.id)}
+          >
+            <div 
+              className={`flex items-center space-x-4 p-3 border-l-4 border-[#754C29] bg-gray-50 rounded-r-md hover:bg-gray-100 transition-all duration-200 ${
+                selectedFarmerId === farmer.id ? 'transform translate-y-[-4px] shadow-md' : ''
+              }`}
+            >
+              <div className="w-12 h-12 relative overflow-hidden rounded-full">
+                <Image
+                  src={farmer.picture}
+                  alt={farmer.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full"
+                />
+              </div>
+              <div>
+                <h3 className="font-semibold text-[#754C29]">{farmer.name}</h3>
+                <p className="text-sm text-gray-600">{farmer.phoneNumber}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

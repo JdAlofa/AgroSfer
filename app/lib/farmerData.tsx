@@ -1,4 +1,3 @@
-
 interface Field {
   name: string;
   product: string;
@@ -8,6 +7,7 @@ interface Field {
 
 interface Farmer {
   id: number;
+  picture: string;
   name: string;
   phoneNumber: string;
   address: string;
@@ -25,7 +25,8 @@ interface Farmer {
 const farmers: Farmer[] = [
   {
     id: 1,
-    name: 'John Doe',
+    picture: '/happy farmer 1.jpeg',
+    name: 'Djibril Traore',
     phoneNumber: '123-456-7890',
     address: '123 Farm Lane, Countryside',
     birthdate: '1980-01-01',
@@ -49,11 +50,12 @@ const farmers: Farmer[] = [
         area: 15,
         providerName: 'Jane Smith'
       }
-    ]
+    ],
   },
   {
     id: 2,
-    name: 'Alice Brown',
+    picture: '/happy farmer 2.jpeg',
+    name: 'Alice Zenith',
     phoneNumber: '987-654-3210',
     address: '456 Rural Road, Farmland',
     birthdate: '1975-05-15',
@@ -77,7 +79,7 @@ const farmers: Farmer[] = [
         area: 25,
         providerName: 'John Doe'
       }
-    ]
+    ],
   }
 ];
 

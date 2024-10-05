@@ -22,11 +22,11 @@ export default function TopNav() {
             <Bell size={24} />
           </button>
           <div className="flex items-center space-x-2">
-            <span className="text-white text-sm font-medium">John TOTI</span>
+            <span className="text-white text-sm font-medium">Samantha RANA</span>
             <div className="w-8 h-8 rounded-full overflow-hidden">
               <Image 
                 src="/happy farmer.jpeg"
-                alt="John TOTI" 
+                alt="Samantha RANA" 
                 width={52} 
                 height={52}
                 className="object-cover w-full h-full"
