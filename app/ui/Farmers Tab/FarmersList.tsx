@@ -47,7 +47,7 @@ export default function FarmersList({ searchQuery, onSearch }: FarmersListProps)
         />
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4" >
         {farmers.map((farmer) => (
           <Link 
             key={farmer.id} 

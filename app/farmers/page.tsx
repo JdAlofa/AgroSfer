@@ -1,14 +1,24 @@
 "use client"
 
-import { useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { useParams, useRouter, usePathname } from 'next/navigation'
 import FarmersList from "../ui/Farmers Tab/FarmersList"
 import FarmerForm from "../ui/Farmers Tab/FarmerForm"
+import farmerData from '../lib/farmerData'
 
 export default function FarmersPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const params = useParams()
+  const router = useRouter()
+  const pathname = usePathname()
   const selectedFarmerId = params?.id as string
+  const currentTab = pathname.split('/').pop() || 'bio'
+
+  useEffect(() => {
+    if (!selectedFarmerId && farmerData.length > 0) {
+      router.push(`/farmers/${farmerData[0].id}/bio`)
+    }
+  }, [selectedFarmerId, router])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -21,7 +31,7 @@ export default function FarmersPage() {
         <FarmersList searchQuery={searchQuery} onSearch={handleSearch} />
       </div>
       <div className="lg:w-2/3 bg-white rounded-lg shadow-md p-6 overflow-y-auto">
-        <FarmerForm farmerId={selectedFarmerId} />
+        <FarmerForm farmerId={selectedFarmerId} initialTab={currentTab} />
       </div>
     </div>
   )

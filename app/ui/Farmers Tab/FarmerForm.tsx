@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useParams, usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import farmerData from '../../lib/farmerData'
+import Bio from './Farmers infos/bio'
+import Informations from './Farmers infos/informations'
+import Farms from './Farmers infos/farms'
 
 interface Farmer {
   id: number
@@ -16,11 +18,13 @@ interface Farmer {
 
 interface FarmerFormProps {
   farmerId?: string
+  initialTab?: string
 }
 
-export default function FarmerForm({ farmerId }: FarmerFormProps) {
+export default function FarmerForm({ farmerId, initialTab = 'bio' }: FarmerFormProps) {
   const [farmer, setFarmer] = useState<Farmer | null>(null)
-  const pathname = usePathname()
+  const [activeTab, setActiveTab] = useState(initialTab)
+  const router = useRouter()
 
   useEffect(() => {
     const id = farmerId ? parseInt(farmerId, 10) : 1
@@ -28,7 +32,6 @@ export default function FarmerForm({ farmerId }: FarmerFormProps) {
     if (selectedFarmer) {
       setFarmer(selectedFarmer)
     } else {
-      // If no farmer is found, default to farmer with id 1
       const defaultFarmer = farmerData.find(f => f.id === 1)
       if (defaultFarmer) {
         setFarmer(defaultFarmer)
@@ -37,7 +40,7 @@ export default function FarmerForm({ farmerId }: FarmerFormProps) {
   }, [farmerId])
 
   if (!farmer) {
-    return null // Return null instead of loading div
+    return null 
   }
 
   const tabs = [
@@ -49,8 +52,13 @@ export default function FarmerForm({ farmerId }: FarmerFormProps) {
     { name: 'Mapping', href: `/farmers/${farmer.id}/mapping` },
   ]
 
+  const handleTabClick = (tabName: string) => {
+    setActiveTab(tabName.toLowerCase())
+    router.push(`/farmers/${farmer.id}/${tabName.toLowerCase()}`)
+  }
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-4">
           <div className="w-20 h-20 relative overflow-hidden rounded-full">
@@ -78,19 +86,22 @@ export default function FarmerForm({ farmerId }: FarmerFormProps) {
       </div>
       <nav className="flex space-x-4 border-b border-gray-200">
         {tabs.map((tab) => (
-          <Link
+          <button
             key={tab.name}
-            href={tab.href}
+            onClick={() => handleTabClick(tab.name)}
             className={`py-2 px-3 text-sm font-medium ${
-              pathname === tab.href
+              activeTab === tab.name.toLowerCase()
                 ? 'border-b-2 border-[#754C29] text-[#754C29]'
                 : 'text-gray-500 hover:text-[#754C29]'
             }`}
           >
             {tab.name}
-          </Link>
+          </button>
         ))}
       </nav>
+      {activeTab === 'bio' && <Bio farmerId={farmer.id.toString()} />}
+      {activeTab === 'informations' && <Informations farmerId={farmer.id.toString()} />}
+      {activeTab === 'farms' && <Farms farmerId={farmer.id.toString()} />}
     </div>
   )
 }
