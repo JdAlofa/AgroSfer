@@ -46,13 +46,13 @@ export default function Farms({ farmerId }: FarmsProps) {
       <div className="space-y-4">
         {farmer.fields.map((field, index) => (
           <div key={index} className="bg-[#FDF8F3] p-4 rounded-md">
-            <div className="grid grid-cols-4 gap-4 mb-2 text-sm text-gray-500">
-              <div>Code parcelle:</div>
-              <div>Spéculation:</div>
-              <div>Superficie parcelle:</div>
-              <div>Provider:</div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-2 text-sm">
+              <div className="hidden sm:block text-gray-500">Code parcelle:</div>
+              <div className="hidden sm:block text-gray-500">Spéculation:</div>
+              <div className="hidden sm:block text-gray-500">Superficie parcelle:</div>
+              <div className="hidden sm:block text-gray-500">Provider:</div>
             </div>
-            <div className="grid grid-cols-4 gap-4 text-[#754C29] font-medium">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[#754C29] font-medium">
               <div>{field.name}</div>
               <div>{field.product}</div>
               <div>{field.area} Ha</div>
