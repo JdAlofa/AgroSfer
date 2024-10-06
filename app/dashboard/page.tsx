@@ -11,12 +11,8 @@ export default function DashboardPage() {
       <div className="grid grid-rows-2 gap-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="grid grid-rows-2 gap-6">
-            <div className="bg-white rounded-lg shadow-xl p-6">
               <Farmer />
-            </div>
-            <div className="bg-white rounded-lg shadow-xl p-6">
               <Mapping />
-            </div>
           </div>
           <div className="bg-white rounded-lg shadow-xl p-6">
             <GenderDistribution />
@@ -31,9 +27,7 @@ export default function DashboardPage() {
         <div className="row-span-3 bg-white rounded-lg shadow-xl p-6">
           <FarmerDistribution />
         </div>
-        <div className="bg-white rounded-lg shadow-xl p-6">
           <Profiles />
-        </div>
       </div>
     </div>
   );
