@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 function Mapping() {
   return (
-    <div className="bg-[#ffffff] text-white rounded-lg p-4 flex justify-between items-start shadow-2xl">
+    <div className="bg-[#ffffff] text-white rounded-lg p-4 flex justify-between items-start shadow-xl">
       <div>
         <h2 className="text-xl font-semibold mb-1 text-black">Mapping</h2>
         <p className="text-2xl mb-8 text-black">109.67 ha</p>
@@ -22,3 +22,4 @@ function Mapping() {
 }
 
 export default Mapping
+

@@ -18,9 +18,7 @@ export default function DashboardPage() {
             <GenderDistribution />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-xl p-6">
           <AgeGenderDistribution />
-        </div>
       </div>
 
       <div className="grid grid-rows-4 gap-6">

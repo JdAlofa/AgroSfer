@@ -1,7 +1,5 @@
-function def() {
-  return (
-    <div>def</div>
-  )
-}
+import { redirect } from 'next/navigation'
 
-export default def
+export default function Home() {
+  redirect('/dashboard')
+}
