@@ -22,7 +22,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-rows-4 gap-6">
-        <div className="row-span-3 bg-white rounded-lg shadow-xl p-6">
+        <div className="row-span-3 bg-white rounded-lg shadow-xl">
           <FarmerDistribution />
         </div>
           <Profiles />
