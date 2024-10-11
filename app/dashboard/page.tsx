@@ -1,9 +1,9 @@
-import Farmer from "../ui/Dashboard Cards/Farmer";
-import Mapping from "../ui/Dashboard Cards/Mapping";
-import GenderDistribution from "../ui/Dashboard Cards/GenderDistribution";
-import AgeGenderDistribution from "../ui/Dashboard Cards/AgeGenderDistribution";
-import FarmerDistribution from "../ui/Dashboard Cards/FarmerDistribution";
-import Profiles from "../ui/Dashboard Cards/Profiles";
+import Farmer from "../../components/ui/Dashboard-Cards/Farmer";
+import Mapping from "../../components/ui/Dashboard-Cards/Mapping";
+import GenderDistribution from "../../components/ui/Dashboard-Cards/GenderDistribution";
+import AgeGenderDistribution from "../../components/ui/Dashboard-Cards/AgeGenderDistribution";
+import FarmerDistribution from "../../components/ui/Dashboard-Cards/FarmerDistribution";
+import Profiles from "../../components/ui/Dashboard-Cards/Profiles";
 
 export default function DashboardPage() {
   return (

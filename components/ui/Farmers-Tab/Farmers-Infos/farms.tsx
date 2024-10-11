@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Filter } from 'lucide-react'
-import farmerData from '../../../lib/farmerData'
+import { useState, useEffect } from "react";
+import { Filter } from "lucide-react";
+import farmerData from "../../../../lib/farmerData";
 
 interface Field {
   name: string;
@@ -21,18 +21,18 @@ interface FarmsProps {
 }
 
 export default function Farms({ farmerId }: FarmsProps) {
-  const [farmer, setFarmer] = useState<Farmer | null>(null)
+  const [farmer, setFarmer] = useState<Farmer | null>(null);
 
   useEffect(() => {
-    const id = parseInt(farmerId, 10)
-    const selectedFarmer = farmerData.find(f => f.id === id)
+    const id = parseInt(farmerId, 10);
+    const selectedFarmer = farmerData.find((f) => f.id === id);
     if (selectedFarmer) {
-      setFarmer(selectedFarmer as Farmer)
+      setFarmer(selectedFarmer as Farmer);
     }
-  }, [farmerId])
+  }, [farmerId]);
 
   if (!farmer) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -47,9 +47,13 @@ export default function Farms({ farmerId }: FarmsProps) {
         {farmer.fields.map((field, index) => (
           <div key={index} className="bg-[#FDF8F3] p-4 rounded-md">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-2 text-sm">
-              <div className="hidden sm:block text-gray-500">Code parcelle:</div>
+              <div className="hidden sm:block text-gray-500">
+                Code parcelle:
+              </div>
               <div className="hidden sm:block text-gray-500">Spéculation:</div>
-              <div className="hidden sm:block text-gray-500">Superficie parcelle:</div>
+              <div className="hidden sm:block text-gray-500">
+                Superficie parcelle:
+              </div>
               <div className="hidden sm:block text-gray-500">Provider:</div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[#754C29] font-medium">
@@ -62,5 +66,5 @@ export default function Farms({ farmerId }: FarmsProps) {
         ))}
       </div>
     </div>
-  )
+  );
 }

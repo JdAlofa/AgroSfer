@@ -12,11 +12,11 @@ const COLORS = ['#B79C8F', '#754C29']
 const CustomLegend = (props: any) => {
   const { payload } = props;
   return (
-    <ul className="flex justify-center space-x-8 mt-4">
+    <ul className="flex justify-center space-x-12 mt-6">
       {payload.map((entry: any, index: number) => (
         <li key={`item-${index}`} className="flex items-center">
-          <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: entry.color }}></span>
-          <span className="text-sm font-medium">{entry.value}</span>
+          <span className="w-5 h-5 rounded-full mr-3" style={{ backgroundColor: entry.color }}></span>
+          <span className="text-lg font-medium">{entry.value}</span>
         </li>
       ))}
     </ul>
@@ -34,7 +34,9 @@ export default function GenderDistribution() {
               data={data}
               cx="50%"
               cy="50%"
-              outerRadius="80%"
+              outerRadius="90%"
+              startAngle={90}
+              endAngle={450}
               fill="#8884d8"
               dataKey="value"
             >

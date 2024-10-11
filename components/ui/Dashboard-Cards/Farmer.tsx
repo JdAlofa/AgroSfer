@@ -12,7 +12,7 @@ function Farmer() {
         </div>
       </div>
         <Image
-          src="/farmers-white.svg"
+          src="/SVGs/farmers-white.svg"
           alt="Farmer icon"
           width={62}
           height={62}
