@@ -44,7 +44,7 @@ export default function FarmersList({
       <div className="relative mb-4">
         <input
           type="text"
-          placeholder="Recherche"
+          placeholder="Search"
           className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#754C29]"
           value={searchQuery}
           onChange={(e) => onSearch(e.target.value)}

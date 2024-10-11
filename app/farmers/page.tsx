@@ -25,12 +25,12 @@ export default function FarmersPage() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen bg-gray-100 gap-6">
-      <div className="lg:w-1/3 bg-white rounded-lg shadow-md p-6 overflow-y-auto">
+    <div className="flex flex-col lg:flex-row h-screen bg-white-100 gap-6 relative">
+      <div className="lg:w-1/3 bg-white rounded-lg shadow-md p-6 overflow-y-auto lg:static absolute z-10 w-full">
         <h2 className="text-2xl font-bold mb-4 text-[#754C29]">Farmers List</h2>
         <FarmersList searchQuery={searchQuery} onSearch={handleSearch} />
       </div>
-      <div className="lg:w-2/3 bg-white rounded-lg shadow-md p-6 overflow-y-auto">
+      <div className="lg:w-2/3 bg-white rounded-lg shadow-md p-6 overflow-y-auto mt-[300px] lg:mt-0">
         <FarmerForm farmerId={selectedFarmerId} initialTab={currentTab} />
       </div>
     </div>
