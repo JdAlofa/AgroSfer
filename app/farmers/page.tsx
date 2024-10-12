@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import FarmersList from "../../components/ui/Farmers-Tab/FarmersList";
-import FarmerForm from "../../components/ui/Farmers-Tab/FarmerForm";
-import farmerData from "../../lib/farmerData";
+import FarmersList from "@/components/ui/farmers-tab/FarmersList";
+import FarmerForm from "@/components/ui/farmers-tab/FarmerForm";
+import farmerData from "../../lib/farmer-data";
 
 export default function FarmersPage() {
   const [searchQuery, setSearchQuery] = useState("");

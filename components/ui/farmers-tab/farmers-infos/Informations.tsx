@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Flag } from "lucide-react";
-import farmerData from "@/lib/farmerData";
+import farmerData from "@/lib/farmer-data";
 
 interface Farmer {
   id: number;

@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import farmerData from "@/lib/farmerData";
-import Bio from "./Farmers-Infos/bio";
-import Informations from "./Farmers-Infos/informations";
-import Farms from "./Farmers-Infos/farms";
+import farmerData from "@/lib/farmer-data";
+import Bio from "@/components/ui/farmers-tab/farmers-infos/Bio";
+import Informations from "@/components/ui/farmers-tab/farmers-infos/Informations";
+import Farms from "@/components/ui/farmers-tab/farmers-infos/Farms";
 
 interface Farmer {
   id: number;

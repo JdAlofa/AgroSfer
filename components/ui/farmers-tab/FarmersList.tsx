@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Search, X } from "lucide-react"
-import farmerData from "../../../lib/farmerData"
+import farmerData from "../../../lib/farmer-data"
 
 interface Farmer {
   id: number

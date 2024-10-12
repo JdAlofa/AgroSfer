@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Filter } from "lucide-react";
-import farmerData from "../../../../lib/farmerData";
+import farmerData from "../../../../lib/farmer-data";
 
 interface Field {
   name: string;

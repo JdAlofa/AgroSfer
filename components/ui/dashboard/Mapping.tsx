@@ -12,7 +12,7 @@ function Mapping() {
         </div>
       </div>
         <Image
-          src="/SVGs/map.svg"
+          src="/svgs/map.svg"
           alt="Farmer icon"
           width={62}
           height={62}

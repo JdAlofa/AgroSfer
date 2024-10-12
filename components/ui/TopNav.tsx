@@ -15,7 +15,7 @@ export default function TopNav({ toggleSidebar }: TopNavProps) {
             <Menu size={24} />
           </button>
           <Link href="/">
-            <Image src="/SVGs/agrosfer-logo.svg" alt="AgroSfer Logo" width={142} height={40} />
+            <Image src="/svgs/agrosfer-logo.svg" alt="AgroSfer Logo" width={142} height={40} />
           </Link>
           <button className="text-white">
             <Grid size={24} />
@@ -29,7 +29,7 @@ export default function TopNav({ toggleSidebar }: TopNavProps) {
             <span className="text-white text-sm font-medium hidden md:inline">Samantha RANA</span>
             <div className="w-14 h-14 rounded-full overflow-hidden">
               <Image 
-                src="/Farmers-Images/happy farmer.jpeg"
+                src="/farmers/images/happy_farmer.jpeg"
                 alt="Samantha RANA" 
                 width={52} 
                 height={52}

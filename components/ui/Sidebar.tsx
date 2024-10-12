@@ -5,10 +5,10 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const sidebarItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: '/SVGs/dashboard.svg' },
-  { href: '/farmers', label: 'Farmers', icon: '/SVGs/farmers.svg' },
-  { href: '/cooperatives', label: 'Cooperatives', icon: '/SVGs/cooperatives.svg' },
-  { href: '/settings', label: 'Settings', icon: '/SVGs/settings.svg' },
+  { href: '/dashboard', label: 'Dashboard', icon: '/svgs/dashboard.svg' },
+  { href: '/farmers', label: 'Farmers', icon: '/svgs/farmers.svg' },
+  { href: '/cooperatives', label: 'Cooperatives', icon: '/svgs/cooperatives.svg' },
+  { href: '/settings', label: 'Settings', icon: '/svgs/settings.svg' },
 ]
 
 interface SidebarProps {
