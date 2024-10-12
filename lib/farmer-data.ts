@@ -28,7 +28,7 @@ interface Farmer {
 const farmers: Farmer[] = [
   {
     id: 1,
-    picture: '/farmers/happy_farmer_1.jpeg',
+    picture: '/farmers/images/happy_farmer_1.jpeg',
     name: 'Djibril Traore',
     phoneNumber: '123-456-7890',
     address: '123 Farm Lane, Countryside',
@@ -60,7 +60,7 @@ const farmers: Farmer[] = [
   },
   {
     id: 2,
-    picture: '/farmers/happy_farmer_2.jpeg',
+    picture: '/farmers/images/happy_farmer_2.jpeg',
     name: 'Alice Zenith',
     phoneNumber: '987-654-3210',
     address: '456 Rural Road, Farmland',
@@ -92,7 +92,7 @@ const farmers: Farmer[] = [
   },
   {
     id: 3,
-    picture: '/farmers/happy_farmer_3.jpeg',
+    picture: '/farmers/images/happy_farmer_3.jpeg',
     name: 'Carlos Rodriguez',
     phoneNumber: '555-123-4567',
     address: '789 Harvest Lane, Cropville',
@@ -124,7 +124,7 @@ const farmers: Farmer[] = [
   },
   {
     id: 4,
-    picture: '/farmers/happy_farmer_4.jpeg',
+    picture: '/farmers/images/happy_farmer_4.jpeg',
     name: 'Emily Thompson',
     phoneNumber: '222-333-4444',
     address: '101 Orchard Road, Fruitville',
@@ -156,7 +156,7 @@ const farmers: Farmer[] = [
   },
   {
     id: 5,
-    picture: '/farmers/happy_farmer_5.jpeg',
+    picture: '/farmers/images/happy_farmer_5.jpeg',
     name: 'Rita Majoli',
     phoneNumber: '777-888-9999',
     address: '555 Desert Bloom Road, Oasistown',
