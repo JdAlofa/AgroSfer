@@ -22,7 +22,8 @@ export default function FarmersList({
   searchQuery,
   onSearch,
 }: FarmersListProps) {
-  const [farmers, setFarmers] = useState<Farmer[]>([])
+  const [farmers, setFarmers] = useState<Farmer[]>(farmerData)
+  const [selectedFarmerId, setSelectedFarmerId] = useState<number | null>(null)
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const searchInputRef = useRef<HTMLInputElement>(null)
 
@@ -35,7 +36,8 @@ export default function FarmersList({
     setFarmers(filteredFarmers)
   }, [searchQuery])
 
-  const handleFarmerClick = () => {
+  const handleFarmerClick = (id: number) => {
+    setSelectedFarmerId(id)
     setIsSearchFocused(false)
     if (searchInputRef.current) {
       searchInputRef.current.blur()
@@ -43,12 +45,12 @@ export default function FarmersList({
   }
 
   const handleClearSearch = () => {
-    onSearch('');
-    setIsSearchFocused(false);
+    onSearch('')
+    setIsSearchFocused(false)
     if (searchInputRef.current) {
-      searchInputRef.current.blur();
+      searchInputRef.current.blur()
     }
-  };
+  }
 
   return (
     <div className="relative">
@@ -68,20 +70,26 @@ export default function FarmersList({
         />
         <button
           onClick={handleClearSearch}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 lg:hidden"
         >
           <X size={20} />
         </button>
       </div>
-      {(isSearchFocused || searchQuery) && (
-        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
+      <div className="lg:block">
+        <div className={`lg:space-y-4 ${(isSearchFocused || searchQuery) ? 'block' : 'hidden'} lg:block absolute lg:static z-10 w-full bg-white border border-gray-300 lg:border-none rounded-md shadow-lg lg:shadow-none max-h-60 lg:max-h-full overflow-y-auto`}>
           {farmers.map((farmer) => (
             <Link
               key={farmer.id}
               href={`/farmers/${farmer.id}/bio`}
-              onClick={handleFarmerClick}
+              onClick={() => handleFarmerClick(farmer.id)}
             >
-              <div className="flex items-center space-x-4 p-3 hover:bg-gray-100 transition-all duration-200">
+              <div
+                className={`flex items-center space-x-4 p-3 lg:border-l-4 lg:border-[#754C29] lg:bg-gray-50 lg:rounded-r-md hover:bg-gray-100 transition-all duration-200 ${
+                  selectedFarmerId === farmer.id
+                    ? "lg:transform lg:translate-y-[-4px] lg:shadow-md"
+                    : ""
+                }`}
+              >
                 <div className="w-12 h-12 relative overflow-hidden rounded-full">
                   <Image
                     src={farmer.picture}
@@ -99,7 +107,7 @@ export default function FarmersList({
             </Link>
           ))}
         </div>
-      )}
+      </div>
     </div>
   )
 }
