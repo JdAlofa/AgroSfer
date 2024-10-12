@@ -57,7 +57,7 @@ export default function FarmerDistribution() {
                 dataKey="count" 
                 position="left" 
                 fill="#754C29" 
-                formatter={(value) => `${value}`} 
+                formatter={(value: number | string) => `${value}`} 
                 style={{ fontWeight: 'bold' }}
                 offset={10}
               />
@@ -65,7 +65,7 @@ export default function FarmerDistribution() {
                 dataKey="city" 
                 position="right" 
                 fill="#754C29" 
-                formatter={(value) => `${value}`} 
+                formatter={(value: number | string) => `${value}`} 
                 style={{ fontWeight: 'bold' }}
               />
             </Bar>
