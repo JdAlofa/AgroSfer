@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts"
+import { Props as LegendProps } from 'recharts/types/component/DefaultLegendContent';
 
 const data = [
   { name: 'Men', value: 60 },
@@ -10,11 +10,11 @@ const data = [
 
 const COLORS = ['#B79C8F', '#754C29']
 
-const CustomLegend = (props: any) => {
-  const { payload } = props;
+const CustomLegend: React.FC<LegendProps> = ({ payload }) => {
+  if (!payload) return null;
   return (
     <ul className="flex justify-center space-x-12 mt-6">
-      {payload.map((entry: { color: string; value: string }, index: number) => (
+      {payload.map((entry, index) => (
         <li key={`item-${index}`} className="flex items-center">
           <span className="w-5 h-5 rounded-full mr-3" style={{ backgroundColor: entry.color }}></span>
           <span className="text-lg font-medium">{entry.value}</span>
